@@ -24,18 +24,31 @@ document.querySelector("#app").innerHTML = `
   <h1>🚀 Stellar Payment dApp</h1>
 
   <button id="connectBtn">🔗 Connect Wallet</button>
+  <hr>
+
+
 
   <button id="disconnectBtn">Disconnect Wallet</button>
 
   <hr>
 
   <h3>Wallet Address</h3>
+  <button id="copyBtn">📋 Copy Address</button>
   <p id="address">Not Connected</p>
 
   <h3>Balance</h3>
   <p id="balance">0 XLM</p>
 
   <hr>
+  <hr>
+
+<h2>Wallet Dashboard</h2>
+
+<p>Total Assets : 1</p>
+
+<p>Network : Stellar Testnet</p>
+
+<p>Status : Active</p>
 
   <h3>Send XLM</h3>
 
@@ -53,6 +66,9 @@ document.querySelector("#app").innerHTML = `
 
   <button id="sendBtn">Send Payment</button>
   <button id="copyBtn">📋 Copy Address</button>
+  <div id="loader" style="display:none;">
+⏳ Loading...
+</div>
 
   <p id="status">Ready</p>
   <h3>Transaction History</h3>
@@ -68,6 +84,9 @@ Made with ❤️ by Hemant Patel
 
 </div>
 `;
+const loader = document.getElementById("loader");
+loader.style.display = "block";
+loader.style.display = "none";
 const history = document.getElementById("history");
 const connectBtn = document.getElementById("connectBtn");
 const sendBtn = document.getElementById("sendBtn");
@@ -138,6 +157,7 @@ connectBtn.addEventListener("click", async () => {
   }
 
 });
+
 
 
 /* ---------------- SEND XLM ---------------- */
